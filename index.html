@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='node_modules/fullcalendar/main.css' rel='stylesheet' />
+    <script src='node_modules/fullcalendar/main.js'></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Document</title>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'dayGridMonth,timeGridWeek,timeGridDay',
+                    center: 'title',
+                    right: 'prev, next, today, myButton',
+                },
+
+                dateClick: function(info) {
+                    $('#modal1').modal('toggle');
+                    console.log(info)
+                    calendar.addEvent({
+                        title: 'Evento x',
+                        date: info.dateStr,
+                    } )
+                },
+
+                eventClick: function (info){
+                    // console.log(info);
+                    console.log(info.event.title);
+                    console.log(info.event.start);
+                    console.log(info.event.end);
+                    console.log(info.event.textColor);
+                    console.log(info.event.backgroundColor);
+                    console.log(info.event.extendedProps.description)
+                },
+
+                customButtons: {
+                    myButton: {
+                        text: 'Alert!',
+                        click: function() {
+                            $('#modal1').modal('toggle');
+                        }
+                    }
+                },
+
+                events:[
+                    {
+                        title: 'Evento 1',
+                        start: '2021-05-05 12:30:00',
+                        end: '2021-05-06 12:30:00',
+                        color: 'red',
+                        textColor: 'yellow',
+                        description: 'Description of event one'
+
+                    },
+                    {
+                        title: 'Evento 2',
+                        start: '2021-05-07 12:30:00',
+                        end: '2021-05-08 12:30:00',
+                        color: 'blue',
+                        textColor: 'pink',
+                        description: 'Description of event two'
+                    },
+                ],
+
+
+                initialDate: '2021-05-21',
+                initialView: 'dayGridMonth'
+            });
+
+            calendar.setOption('locale', 'es');
+            calendar.render();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="calendar"></div>
+    </div>
+
+</body>
+</html>
