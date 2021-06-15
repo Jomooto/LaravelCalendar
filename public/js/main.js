@@ -1,5 +1,4 @@
 
-
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -22,6 +21,8 @@
 
         eventClick: function (info){
             $('#modal1').modal();
+
+
             document.getElementById('btnPost').disabled = true;
             document.getElementById('btnUpdate').disabled = false;
             document.getElementById('btnDelete').disabled = false;
@@ -115,26 +116,16 @@
             }
 
             return(newEvent);
-
         }
 
-        function sendData(action, eventObject, modal){
-
-            $.ajax({
-                type:'POST',
-                url: url_show+action,
-                data: eventObject,
-                success: function (msg){
-                    if (!modal){
-                        $('#modal1').modal('toggle');
-                    }
-
-                    calendar.refetchEvents();
-                },
-                error:function () {
-                    alert('Hay un error');
-                },
-            });
+        function sendData(action, eventObject){
+            
+            axios.post(url_show+action,eventObject)
+                .then(res =>{
+                    $('#modal1').modal('hide')
+                    calendar.refetchEvents()
+                })
+                .catch(err => alert('error ' + err))
         }
 
         function cleanForm(){
@@ -145,5 +136,7 @@
             document.getElementById('txtColor').value = '';
             document.getElementById('txtDescription').value = '';
         }
+
+
 
     });
