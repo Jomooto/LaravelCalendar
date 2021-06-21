@@ -119,7 +119,7 @@
         }
 
         function sendData(action, eventObject){
-            
+
             axios.post(url_show+action,eventObject)
                 .then(res =>{
                     $('#modal1').modal('hide')
