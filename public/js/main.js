@@ -86,7 +86,7 @@
 
         $('#btnPost').click(function () {
             eventObj =  getData('POST');
-            sendData('', eventObj);
+            sendData('/', eventObj);
         });
 
         $('#btnUpdate').click(function () {

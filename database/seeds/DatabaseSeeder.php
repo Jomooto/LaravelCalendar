@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Events::create([
-            'id' => 1,
             'title' => 'Comida',
             'description' => 'ir a comer con mi padre',
             'backgroundColor' => '#000000',
