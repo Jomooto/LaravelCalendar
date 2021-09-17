@@ -39,6 +39,7 @@ class EventsController extends Controller
         $eventData = request()->except([
             '_token',
             '_method',
+            'id',
         ]);
         events::insert($eventData);
     }
