@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             'description' => 'ir a comer con mi padre',
             'backgroundColor' => '#000000',
             'textColor' => '#FFFFFF',
+            'start' => '2021-09-16 10:30:00',
+            'end' => '2021-09-16 10:30:00',
             
         ]);
     }
