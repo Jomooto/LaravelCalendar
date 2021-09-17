@@ -17,5 +17,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'j@admin.com',
             'password' => bcrypt('12345678')
         ]);
+
+        \App\Events::create([
+            'id' => 1,
+            'title' => 'Comida',
+            'description' => 'ir a comer con mi padre',
+            'backgroundColor' => '#000000',
+            'textColor' => '#FFFFFF',
+            
+        ]);
     }
 }
