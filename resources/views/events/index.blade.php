@@ -14,13 +14,13 @@
 @endsection
 
 @section('content')
-    <div class="row">
+    <!-- <div class="row">
         <div class="col"></div>
         <div class="col col-7">
             <div id="calendar">Calendario ...</div>
         </div>
         <div class="col"></div>
-    </div>
+    </div> -->
 
     <!-- Modal -->
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -56,7 +56,7 @@
                         <div class="form-group col-md-12">
                             <label for="">Descripcion</label>
                             <textarea name="txtDescription" class="form-control" id="txtDescription"
-                                      cols="30" rows="5"></textarea>
+                                    cols="30" rows="5"></textarea>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="">Color</label>
@@ -83,5 +83,7 @@
     <div id="calendar"></div>
     </div>
 @endsection
+
+
 
 

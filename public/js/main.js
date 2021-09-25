@@ -2,11 +2,16 @@
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            // themeSystem: 'bootstrap',
         headerToolbar: {
-            left: 'dayGridMonth,timeGridWeek,timeGridDay',
-            center: 'title',
-            right: 'prev, next, today, myButton',
+            // left: 'dayGridMonth,timeGridWeek,timeGridDay',
+            left: 'dayGridMonth,timeGridDay',
+            // center: 'title',
+            // right: 'prev, next, today, myButton',
+
+            
         },
+
 
         dateClick: function(info) {
             cleanForm();
@@ -77,8 +82,10 @@
             events: url_events ,
 
 
-            initialDate: '2021-05-21',
-            initialView: 'dayGridMonth'
+            // initialDate: '2021-05-21',
+            // initialView: 'dayGridMonth'
+            initialView: 'timeGridDay'
+            
         });
 
         calendar.setOption('locale', 'es');
@@ -136,7 +143,5 @@
             document.getElementById('txtColor').value = '';
             document.getElementById('txtDescription').value = '';
         }
-
-
 
     });
