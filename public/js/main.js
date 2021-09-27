@@ -17,9 +17,12 @@
             cleanForm();
 
             document.getElementById('txtDate').value = info.dateStr;
-            document.getElementById('btnPost').disabled = false;
-            document.getElementById('btnUpdate').disabled = true;
-            document.getElementById('btnDelete').disabled = true;
+            // document.getElementById('btnPost').disabled = false;
+            document.getElementById('btnPost').style.display = 'inline';
+            document.getElementById('btnUpdate').style.display = 'none';
+            document.getElementById('btnDelete').style.display = 'none';
+            // document.getElementById('btnUpdate').disabled = true;
+            // document.getElementById('btnDelete').disabled = true;
 
             $('#modal1').modal();
         },
@@ -28,9 +31,10 @@
             $('#modal1').modal();
 
 
-            document.getElementById('btnPost').disabled = true;
-            document.getElementById('btnUpdate').disabled = false;
-            document.getElementById('btnDelete').disabled = false;
+            document.getElementById('btnPost').style.display = 'none';
+            // document.getElementById('btnPost').disabled = true;
+            document.getElementById('btnUpdate').style.display = 'inline';
+            document.getElementById('btnDelete').style.display = 'inline';
 
             document.getElementById('txtId').value =info.event.id;
             let newMonth= info.event.start.getMonth()+1;

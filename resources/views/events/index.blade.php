@@ -74,7 +74,6 @@
                     <button id="btnUpdate" class="btn btn-warning ">Modificar</button>
                     <button id="btnDelete" class="btn btn-danger">Borrar</button>
                     <button id="btnCancel" data-dismiss="modal" class="btn btn-info">Cancelar</button>
-{{--                    <button id="btnCancel" data-toggle="modal" data-target="#modal1" class="btn btn-info">Cancelar</button>--}}
 
                 </div>
             </div>
